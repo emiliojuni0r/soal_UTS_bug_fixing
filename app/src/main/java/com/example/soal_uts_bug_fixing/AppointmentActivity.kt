@@ -62,7 +62,7 @@ class AppointmentActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
             submitBtn.setOnClickListener {
                 if(fieldNotEmpty()){
                     val dialog = DialogExit()
-                    //
+                    dialog.show(supportFragmentManager, "dialogExit")
                 }else{
                     Toast.makeText(this@AppointmentActivity, "MASIH ADA KOLOM YANG KOSONG", Toast.LENGTH_SHORT).show()
                 }
@@ -132,7 +132,7 @@ class AppointmentActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
 
     fun fieldNotEmpty(): Boolean {
         with(binding){
-            if(kontakEdt.text.toString()!="" && tipePertemuan!="" && timeInput!="" && dateInput!=""){
+            if(kontakEdt.text.toString()!="" && tipePertemuan!="" && timerTxt.text!="" && kalenderTxt.text!=""){
                 if(tipePertemuan=="Offline"){
                     if(lokasiEdt.text.toString()!=""){
                         return true
